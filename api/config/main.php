@@ -55,7 +55,7 @@ return [
         ],
         'jwt' => [
             'class' => \sizeg\jwt\Jwt::class,
-            'key' => 'SDJFF023JF_F92J3F02J3F',  //typically a long random string
+            'key' => 'secret',
             'jwtValidationData' => \api\components\JwtValidationData::class,
         ],
     ],

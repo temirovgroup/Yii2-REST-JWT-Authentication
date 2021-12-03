@@ -2,9 +2,9 @@
 return [
     'adminEmail' => 'admin@example.com',
     'jwt' => [
-        'issuer' => 'https://api.example.com',
-        'audience' => 'https://frontend.example.com',
-        'id' => 'UNIQUE-JWT-IDENTIFIER',
-        'expire' => 300,
+        'issuer' => 'http://api.example.com',
+        'audience' => 'http://frontend.example.com',
+        'id' => 'str',
+        'expire' => 300000,
     ],
 ];

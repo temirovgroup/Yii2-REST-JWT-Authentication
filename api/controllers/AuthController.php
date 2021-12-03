@@ -121,7 +121,7 @@ class AuthController extends Controller
             ->identifiedBy($jwtParams['id'], true)
             ->issuedAt($time)
             ->expiresAt($time + $jwtParams['expire'])
-            ->withClaim('uid', $user->id)
+            ->withClaim('id', $user->id)
             ->getToken($signer, $key);
     }
 

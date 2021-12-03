@@ -7,6 +7,7 @@ namespace api\controllers;
 
 use api\models\Repo;
 use api\models\search\RepoSearch;
+use sizeg\jwt\JwtHttpBearerAuth;
 use Yii;
 use yii\data\ActiveDataFilter;
 use yii\data\ActiveDataProvider;
@@ -17,6 +18,22 @@ use yii\rest\Controller;
 class RepositoryController extends Controller
 {
     public $modelClass = 'api\models\Repo';
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['authenticator'] = [
+            'class' => JwtHttpBearerAuth::class,
+            'optional' => [
+                'login',
+            ],
+        ];
+
+        return $behaviors;
+    }
 
     public function actionIndex()
     {

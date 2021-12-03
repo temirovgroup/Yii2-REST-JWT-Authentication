@@ -40,13 +40,10 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @param mixed $token
      * @param null $type
-     * @return array|User|ActiveRecord|IdentityInterface|null
+     * @return User|IdentityInterface|null
      */
     public static function findIdentityByAccessToken($token, $type = null) {
-        return static::find()
-            ->where(['id' => (string) $token->getClaim('urf_userID') ])
-            ->andWhere(['<>', 'status', '10'])
-            ->one();
+        return static::findOne(['id' => $token->getClaim('id'), 'status' => 10]);
     }
 
     public function getId()
